@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOOLS FF - LIKE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #1e1e2e 0%, #2a2a3e 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            width: 100%;
+            padding: 50px 40px;
+            animation: slideUp 0.5s ease;
+            text-align: center;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #00d9ff 0%, #0066ff 100%);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+            font-size: 50px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+        }
+
+        .subtitle {
+            color: #b0b0b0;
+            font-size: 15px;
+        }
+
+        .uid-display {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(0, 217, 255, 0.3);
+        }
+
+        .uid-label {
+            color: #00d9ff;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .uid-value {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #00d9ff 0%, #0066ff 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .result.success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .result.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 25px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #00d9ff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .info {
+            background: rgba(0, 217, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #00d9ff;
+            border-left: 4px solid #00d9ff;
+        }
+
+        .result strong {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .result p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .loading-text {
+            margin-top: 15px;
+            color: #b0b0b0;
+            font-weight: 500;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"></div>
+            <h1>LIKE FF</h1>
+            <p class="subtitle">Auto Like Free Fire</p>
+        </div>
+
+        <div class="info">
+             Klik tombol di bawah untuk mendapatkan like!
+        </div>
+
+        <div class="uid-display">
+            <div class="uid-label">UID Anda</div>
+            <div class="uid-value">1187963080</div>
+        </div>
+
+        <button class="btn" id="likeBtn">
+             Mulai Like
+        </button>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p class="loading-text">Sedang memproses...</p>
+        </div>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_URL = 'https://ff.deaddos.online/api/likes?region=id&uid=1187963080&key=0xHamm';
+
+        const likeBtn = document.getElementById('likeBtn');
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
+
+        // Like Button Handler
+        likeBtn.addEventListener('click', async () => {
+            result.style.display = 'none';
+            loading.style.display = 'block';
+            likeBtn.disabled = true;
+
+            try {
+                console.log(' Calling Like API:', API_URL);
+                
+                const response = await fetch(API_URL, { method: 'GET' });
+                const data = await response.json();
+
+                console.log(' Response:', response.status, data);
+
+                loading.style.display = 'none';
+
+                if (response.ok || data.success || data.status === 'success' || response.status === 200) {
+                    showResult('success', `
+                        <strong> Berhasil!</strong>
+                        <p>${data.message || data.msg || 'Like berhasil ditambahkan!'}</p>
+                    `);
+                } else if (response.status === 404) {
+                    throw new Error('API endpoint tidak ditemukan');
+                } else if (response.status === 429) {
+                    throw new Error('Terlalu banyak request. Tunggu beberapa saat');
+                } else {
+                    throw new Error(data.message || data.msg || data.error || 'Terjadi kesalahan');
+                }
+            } catch (error) {
+                loading.style.display = 'none';
+                console.error(' Error:', error);
+                showResult('error', `
+                    <strong> Gagal!</strong>
+                    <p>${error.message}</p>
+                    ${error.message.includes('429') ? '<p style="font-size: 12px; margin-top: 8px; opacity: 0.8;">Tunggu 1-5 menit sebelum mencoba lagi</p>' : ''}
+                `);
+            } finally {
+                likeBtn.disabled = false;
+            }
+        });
+
+        function showResult(type, message) {
+            result.className = `result ${type}`;
+            result.innerHTML = message;
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
